@@ -11,7 +11,6 @@ public class FuncionarioService {
 
     }
 
-
     public static void  listarFuncionarios(){
         if (funcionarios.isEmpty()){
             System.out.printf("Nenhum funcionário cadastrado%n");

@@ -84,20 +84,20 @@ public class Starter {
         int cargo = teclado.nextInt();
         teclado.nextLine();
 
-        Funcionario funcionario = new Funcionario(null, null, 0);
+        Funcionario funcionario = new Funcionario(null, null, 0, "Colaborador");
 
         if (cargo == 1) {
             // dev
             System.out.printf("Informe a linguagem principal%n");
             String linguagem = teclado.nextLine();
-            funcionario = new Desenvolvedor(nome, CPF, salario, linguagem);
+            funcionario = new Desenvolvedor(nome, CPF, salario, linguagem, "Desenvolvedor");
 
         } else if (cargo == 2) {
             // analista
             System.out.printf("Digite a especialidade%n");
             String especialidade = teclado.nextLine();
 
-            funcionario = new Analista(nome, CPF, salario, especialidade);
+            funcionario = new Analista(nome, CPF, salario, especialidade, "Analista");
 
         } else if (cargo == 3) {
             // gerente
@@ -105,7 +105,7 @@ public class Starter {
             int supervisionados = teclado.nextInt();
             teclado.nextLine();
 
-            funcionario = new Gerente(nome, CPF, salario, supervisionados);
+            funcionario = new Gerente(nome, CPF, salario, supervisionados, "Gerente");
 
         } else {
             System.out.printf("Cargo invalido!%n");
