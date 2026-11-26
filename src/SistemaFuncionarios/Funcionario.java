@@ -14,7 +14,6 @@ public class Funcionario {
         this.id = ++incremento;
     }
 
-
     public int getId() {
         return id;
     }
