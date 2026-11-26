@@ -36,7 +36,7 @@ public class Starter {
         System.out.printf("Programa encerrado%n");
     }
 
-    public void exibeMenu(){
+    public void exibeMenu() {
         System.out.printf("%n");
         System.out.printf("-----------------------------%n");
         System.out.printf("| ******* Gestão  Rh *******|%n");
@@ -50,7 +50,8 @@ public class Starter {
         teclado.nextLine();
     }
 
-    public void cadastrarFuncionarios(){
+    public void cadastrarFuncionarios() {
+
         System.out.printf("Digite o nome do Funcionário%n");
         String nome = teclado.nextLine();
 
@@ -61,10 +62,61 @@ public class Starter {
         double salario = teclado.nextDouble();
         teclado.nextLine();
 
-        FuncionarioService.cadastrarFuncionario(nome, CPF, salario);
+        if (nome == null || nome.isEmpty()){
+            System.out.printf("Nome inválido!%n");
+            return;
+        }
+        if (CPF == null || CPF.isEmpty()){
+            System.out.printf("CPF inválido!%n");
+            return;
+        }
+        if (salario <= 0){
+            System.out.printf("Salário inválido!%n");
+            return;
+        }
+
+
+        System.out.printf("Informe o cargo do funcionário%n");
+        System.out.printf(" 1 - Desenvolvedor%n");
+        System.out.printf(" 2 - Analista%n");
+        System.out.printf(" 3 - Gerente%n");
+        System.out.printf("Digite o código%n");
+        int cargo = teclado.nextInt();
+        teclado.nextLine();
+
+        Funcionario funcionario = new Funcionario(null, null, 0);
+
+        if (cargo == 1) {
+            // dev
+            System.out.printf("Informe a linguagem principal%n");
+            String linguagem = teclado.nextLine();
+            funcionario = new Desenvolvedor(nome, CPF, salario, linguagem);
+
+        } else if (cargo == 2) {
+            // analista
+            System.out.printf("Digite a especialidade%n");
+            String especialidade = teclado.nextLine();
+
+            funcionario = new Analista(nome, CPF, salario, especialidade);
+
+        } else if (cargo == 3) {
+            // gerente
+            System.out.printf("Digite a quantidade de supervisionados%n");
+            int supervisionados = teclado.nextInt();
+            teclado.nextLine();
+
+            funcionario = new Gerente(nome, CPF, salario, supervisionados);
+
+        } else {
+            System.out.printf("Cargo invalido!%n");
+            return;
+        }
+
+
+        FuncionarioService.cadastrarFuncionario(funcionario);
     }
 
-    public void listarFuncionarios(){
+    public void listarFuncionarios() {
         FuncionarioService.listarFuncionarios();
     }
 }
