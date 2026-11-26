@@ -16,7 +16,7 @@ public class Starter {
             System.out.printf("| 2 - Calcular Remuneração  |%n");
             System.out.printf("| 3 - Listar funcionários   |%n");
             System.out.printf("| 4 - Custo total folha     |%n");
-            System.out.printf("| 5 - Gerar relatório       | %n ");
+            System.out.printf("| 5 - Gerar relatório       | %n");
             System.out.printf("-----------------------------%n");
             opcao = teclado.nextInt();
             teclado.nextLine();
@@ -24,12 +24,26 @@ public class Starter {
             switch (opcao) {
                 case 1:
                     // cadastrar cliente
+                    System.out.printf("Digite o nome do Funcionário%n");
+                    String nome = teclado.nextLine();
+
+                    System.out.printf("Digite o CPF do Funcionário%n");
+                    String CPF = teclado.nextLine();
+
+                    System.out.printf("Digite o salário do Funcionário%n");
+                    double salario = teclado.nextDouble();
+                    teclado.nextLine();
+
+                    FuncionarioService.cadastrarFuncionario(nome, CPF, salario);
+
                     break;
                 case 2:
                     // calcular remuneração
                     break;
                 case 3:
                     // listar funcionários
+                    FuncionarioService.listarFuncionarios();
+
                     break;
                 case 4:
                     // custo total da folha

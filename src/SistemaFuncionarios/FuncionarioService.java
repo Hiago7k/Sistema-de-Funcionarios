@@ -11,7 +11,7 @@ public class FuncionarioService {
             return;
         }
 
-        if (CPF == null || CPF.isEmpty(){
+        if (CPF == null || CPF.isEmpty()){
             System.out.printf("CPF inválido!%n");
             return;
         }
@@ -21,10 +21,22 @@ public class FuncionarioService {
             return;
         }
 
-
         Funcionario funcionario = new Funcionario(nome, CPF, salario);
         funcionarios.add(funcionario);
-        System.out.printf("Funcionário %s : cadastrado com sucesso%n", funcionario.toString());
+        System.out.printf("Cadastrado com sucesso: %s", funcionario.toString());
+
+    }
+
+
+    public static void  listarFuncionarios(){
+        if (funcionarios.isEmpty()){
+            System.out.printf("Nenhum funcionário cadastrado%n");
+            return;
+        }
+        System.out.printf("-------------- Exibindo funcionários --------------%n");
+        for (Funcionario f: funcionarios){
+            System.out.printf("%s", f.toString());
+        }
 
     }
 
